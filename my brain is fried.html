@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Bebo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      background: #87CEEB;
+    }
+
+    .center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      font-size: 1.5rem;
+      max-width: 800px;
+      padding: 20px;
+      background: none;
+      border-radius: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      animation: floatMainText 6s ease-in-out infinite;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      animation: floatMainText 6s ease-in-out infinite;
+    }
+
+    @keyframes floatMainText {
+      0% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-10px); }
+      100% { transform: translate(-50%, -50%) translateY(0); }
+    }
+
+    .floating-text {
+      position: absolute;
+      left: 20px;
+      animation: floatFast 4s ease-in-out infinite;
+      color: white;
+      font-size: 1rem;
+      z-index: 10;
+      opacity: 0.7;
+    }
+
+    .floating-text:nth-child(4) { top: 10%; animation-delay: 0s; }
+    .floating-text:nth-child(5) { top: 20%; animation-delay: 1s; }
+    .floating-text:nth-child(6) { top: 30%; animation-delay: 2s; }
+    .floating-text:nth-child(7) { top: 40%; animation-delay: 3s; }
+    .floating-text:nth-child(8) { top: 50%; animation-delay: 4s; }
+    .floating-text:nth-child(9) { top: 60%; animation-delay: 5s; }
+
+    @keyframes floatFast {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-25px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    .floating-corner {
+      position: absolute;
+      color: white;
+      font-size: 0.9rem;
+      z-index: 10;
+      opacity: 0.7;
+      animation: floatSlow 10s ease-in-out infinite;
+    }
+
+    .top-right {
+      top: 10px;
+      right: 10px;
+    }
+
+    .bottom-right {
+      bottom: 10px;
+      right: 10px;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #unmute-button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 20;
+    }
+  </style>
+</head>
+<body>
+  <video id="bg-video" class="background-video" autoplay loop muted>
+    <source src="https://files.catbox.moe/p78spq.mov" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <button id="unmute-button">🔊 Tap to enable sound</button>
+
+  <script>
+    const video = document.getElementById('bg-video');
+    const unmuteButton = document.getElementById('unmute-button');
+
+    unmuteButton.addEventListener('click', () => {
+      video.muted = false;
+      video.volume = 1.0;
+      video.play();
+      unmuteButton.style.display = 'none';
+    });
+  </script>
+
+  <div class="floating-text">3amawed</div>
+  <div class="floating-text">paraken</div>
+  <div class="floating-text">3amawed</div>
+  <div class="floating-text">paraken</div>
+  <div class="floating-text">3amawed</div>
+  <div class="floating-text">paraken</div>
+
+  <div class="floating-corner top-right">engineering is always better than dentistry</div>
+  <div class="floating-corner bottom-right">idk what else to write tbh</div>
+
+  <div class="center-text">
+    I built this whole website from scratch—something a dentist could never do. Sure, you fix teeth, but can you code floating flowers? Didn’t think so. While you’re out here doing root canals, I’m out here rooting this website in pure love. And unlike a cavity, I actually want you around forever. Face it, Bebo—engineering wins this round.
+    <div class="subtitle">On 28th of March 2025 we really understood each other's feelings.</div>
+  </div>
+</body>
+</html>
